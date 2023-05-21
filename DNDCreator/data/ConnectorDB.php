@@ -1,8 +1,8 @@
 <?php
-DEFINE('DB_USER','root');
-DEFINE('DB_PSWD', 'P@r7y');
+DEFINE('DB_USER','admin');
+DEFINE('DB_PSWD', 'password');
 define('DB_SERVER', '127.0.0.1:3306');
-define('DB_NAME', 'user');
+define('DB_NAME', 'dnddatabase');
 
 function ConnGet(){
     $dbConn = @mysqli_connect(DB_SERVER,DB_USER,DB_PSWD,DB_NAME)
