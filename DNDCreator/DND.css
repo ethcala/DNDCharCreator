@@ -1,0 +1,16 @@
+body {
+    background-color: darkolivegreen;
+    color: aqua;
+    font-family: 'Edwardian Script ITC';
+}
+
+.header {
+    width: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
