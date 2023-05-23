@@ -1,7 +1,7 @@
 <?php
 DEFINE('DB_USER','admin');
 DEFINE('DB_PSWD', 'password');
-define('DB_SERVER', '127.0.0.1:3306');
+define('DB_SERVER', 'dnddatabase.cdohwcfgju62.us-west-1.rds.amazonaws.com:3306');
 define('DB_NAME', 'dnddatabase');
 
 function ConnGet(){
