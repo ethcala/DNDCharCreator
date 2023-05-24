@@ -20,7 +20,8 @@ function getCharacter($dbConn,$name){
     return @mysqli_query($dbConn, $query);
 }
 
-function addCharacter($dbConn,$name,$gender,$class,$race,$level,$HP,$AC,$str,$dex,$cha,$int,$con,$wis,$flaws){
+function addCharacter($name,$gender,$class,$race,$level,$HP,$AC,$str,$dex,$cha,$int,$con,$wis,$flaws){
+    $dbConn = ConnGet();
     $query = "insert into character(name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values('".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
     return @mysqli_query($dbConn,$query);
 }
