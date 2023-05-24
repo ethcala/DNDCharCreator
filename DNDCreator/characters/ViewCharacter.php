@@ -16,4 +16,3 @@ console_log('JSON: ' . $json);
 <div>
     <?php echo $data->htmlcontent; ?>
 </div>
-?>

@@ -15,7 +15,7 @@ function getUser($dbConn,$username,$password){
     return @mysqli_query($dbConn, $query);
 }
 
-function getCharcter($dbConn,$name){
+function getCharacter($dbConn,$name){
     $query = "select * from `name` where `name` = '" . $name . "'" ;
     return @mysqli_query($dbConn, $query);
 }
