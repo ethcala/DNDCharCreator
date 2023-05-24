@@ -39,7 +39,7 @@
     function addCharacter() {
         <?php
         if (!$_GET['name'] || !$_GET['gender'] || !$_GET['class'] || !$_GET['race'] || !$_GET['flaws'] || !$_GET['level']) {
-            document.getElementById('error').innerHTML('All fields must be filled.');
+            echo ('<p>All fields must be filled.</p>');
         } else {
             addCharacter($_GET['name'], $_GET['gender'], $_GET['class'], $_GET['race'], $_GET['level'], $_GET['hp'], $_GET['ac'], $_GET['strength'], $_GET['dexterity'], $_GET['charisma'], $_GET['intelligence'], $_GET['constitution'], $_GET['wisdom'], $_GET['flaws']);
         }

@@ -20,14 +20,19 @@ function getCharacter($dbConn,$name){
     return @mysqli_query($dbConn, $query);
 }
 
+function getCharacters($user) {
+    $query = "select * from `characters` where `userid` = " . $user;
+    return @mysqli_query(ConnGet(), $query);
+}
+
 function addCharacter($name,$gender,$class,$race,$level,$HP,$AC,$str,$dex,$cha,$int,$con,$wis,$flaws){
     $dbConn = ConnGet();
-    $query = "insert into character(name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values('".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
+    $query = "insert into characters(name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values('".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
     return @mysqli_query($dbConn,$query);
 }
 
 function deleteCharacter($dbConn,$name,$id){
-    $query = "delete from character where id = '".$id."' and name = '".$name."'";
+    $query = "delete from characters where id = '".$id."' and name = '".$name."'";
     return @mysqli_query($dbConn,$query);
 }
 //we need update but idk how the query should look
