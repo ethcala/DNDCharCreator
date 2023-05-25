@@ -1,5 +1,5 @@
 <?php
-
+include_once('../Header.php');
 ?>
 <br />
 <form action="addCharacter">
@@ -35,6 +35,9 @@
 </form>
 <p id="error"></p>
 
+<?php
+include_once('../Footer.php');
+?>
 <script>
     function addCharacter() {
         <?php

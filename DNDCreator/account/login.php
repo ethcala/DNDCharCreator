@@ -1,5 +1,5 @@
 <?php
-
+include_once('../Header.php');
 ?>
 
 <form action="loginScript.php" method="post">
@@ -7,3 +7,7 @@
     Password: <input type="text" name="password" /><br />
     <input type="submit" />
 </form>
+
+<?php
+include_once('../Footer.php');
+?>
