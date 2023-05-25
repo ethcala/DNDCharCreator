@@ -1,6 +1,20 @@
 <?php
 include_once('../Header.php');
 ?>
+<script>
+    function generateRand(){
+         document.getElementById('level').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('hp').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('ac').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('strength').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('constitution').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('dexterity').value = Math.floor(Math.random() * 20) + 1;
+        document.getElementById('charisma').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('intelligence').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('wisdom').value = Math.floor(Math.random() * 20) + 1;
+        
+    }
+</script>
 <br />
 <form action="addCharacter">
     <label for="name">Name</label>
@@ -33,6 +47,7 @@ include_once('../Header.php');
     <input type="number" name="wisdom" id="wisdom" />
     <input name="create" type='submit' value="Create Character" />
 </form>
+<button name="rando" value="randomize" onclick="generateRand()">Randomize</button>
 <p id="error"></p>
 
 <?php
