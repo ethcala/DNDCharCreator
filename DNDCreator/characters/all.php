@@ -10,6 +10,7 @@ function mapThruArray($chars) {
     foreach ($chars as $char) {
         echo '<h1>' . $char['name'] . '</h1>';
         echo '<p>Level ' . $char['level'] . '</p>';
+        echo '<br/> <br/>';
     }
 }
 

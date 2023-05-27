@@ -56,5 +56,47 @@ footer {
 form {
     display: flex;
     flex-direction: column;
+    
+    width:400px;
+    
 
 }
+button{
+    margin:auto;
+}
+
+.btn {
+    margin: auto;
+    background-color: #7e7ef2;
+    padding: 10px;
+    border-radius: 25px;
+    color: aliceblue;
+}
+
+    .btn:hover {
+        cursor: pointer;
+        background-color: #40407a;
+    }
+
+
+.border-box {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #7e7ef2;
+    width: 400px;
+    padding: 20px;
+    border-radius: 5%;
+}
+
+    .form-container{
+        margin:auto;
+    }
+    h3{
+        margin:auto;
+    }
+    h1{
+        text-align:center;
+    }
+    p{
+        text-align:center;
+    }
