@@ -2,7 +2,7 @@
 DEFINE('DB_USER','admin');
 DEFINE('DB_PSWD', 'password');
 define('DB_SERVER', 'dnddatabase.cdohwcfgju62.us-west-1.rds.amazonaws.com:3306');
-define('DB_NAME', 'dnddatabase');
+define('DB_NAME', 'DNDDatabase');
 
 function ConnGet(){
     $dbConn = @mysqli_connect(DB_SERVER,DB_USER,DB_PSWD,DB_NAME)
@@ -21,14 +21,13 @@ function getCharacter($dbConn,$name){
 }
 
 function getCharacters($user) {
-    $query = "select * from `characters` where `userid` = " . $user;
-    console_log("QUERY: " . $query);
+    $query = "select * from `characters` where `userid` = '" . $user . "'";
     return @mysqli_query(ConnGet(), $query);
 }
 
 function addCharacter($name,$gender,$class,$race,$level,$HP,$AC,$str,$dex,$cha,$int,$con,$wis,$flaws){
     $dbConn = ConnGet();
-    $query = "insert into characters(name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values('".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
+    $query = "insert into characters(userid, name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values(".$_SESSION['userid']."','".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
     return @mysqli_query($dbConn,$query);
 }
 
