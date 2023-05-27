@@ -1,7 +1,7 @@
 <?php
 require '../data/ConnectorDB.php';
 $characters = array(""=>"");
-$characters = getCharacters($_COOKIE['user']);
+$characters = getCharacters($_SESSION['user']);
 include_once('../Header.php');
 
 function mapThruArray($chars) {
