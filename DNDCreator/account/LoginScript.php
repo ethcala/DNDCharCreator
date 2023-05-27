@@ -1,16 +1,20 @@
 <?php
-require '../data/ConnectorDB.php';
+include '../data/ConnectorDB.php';
 
-$users = getUser($_POST["username"], $_POST["password"]);
+$conn = ConnGet();
+$users = getUser($connec, $_POST["name"], $_POST["pass"]);
 
-if ($users->num_rows > 0) { // if user is logged in
+if ($users->num_rows > 0) {
     // output data of each row
     while($row = $users->fetch_assoc()) {
 
         $user = $row["username"];
         $pas = $row["password"];
         setcookie("user", $user, time() + (86400 * 30), "/");
-        header("Location: http://localhost:39482");
+        setcookie("password", $pas, time() + (86400 * 30), "/");
+        setcookie("admin", $row["isAdmin"], time() + (86400 * 30), "/");
+        setcookie("style", "../default.css", time() + (86400 * 30), "/");
+        header("Location: http://localhost:5435/");
         exit();
 
     }
