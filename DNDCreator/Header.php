@@ -18,7 +18,7 @@ $_SESSION['css'] = __DIR__ . '\DND.css';
     <style><?php include $_SESSION['css']?></style>
     <header>
     <?php        
-        if($_SESSION['user'] == '') {
+        if($_COOKIE['user'] == '') {
             $menu = array("Account");
             $accMenu = array("Sign Up"=>"/account/signup.php", "Log In"=>"/account/login.php");
             foreach($menu as $title) {
