@@ -2,7 +2,7 @@
 DEFINE('DB_USER','admin');
 DEFINE('DB_PSWD', 'password');
 define('DB_SERVER', 'dnddatabase.cdohwcfgju62.us-west-1.rds.amazonaws.com:3306');
-define('DB_NAME', 'dnddatabase');
+define('DB_NAME', 'DNDDatabase');
 
 function ConnGet(){
     $dbConn = @mysqli_connect(DB_SERVER,DB_USER,DB_PSWD,DB_NAME)
@@ -24,7 +24,6 @@ function getCharacter($name){
 
 function getCharacters($user) {
     $query = "select * from `characters` where `userid` = " . $user;
-    console_log("QUERY: " . $query);
     return @mysqli_query(ConnGet(), $query);
 }
 
