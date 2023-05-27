@@ -42,8 +42,9 @@
     display: block;
 }
 
-.header {
+header {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 footer {
@@ -56,5 +57,5 @@ footer {
 form {
     display: flex;
     flex-direction: column;
-
+    margin-top:20px;
 }
