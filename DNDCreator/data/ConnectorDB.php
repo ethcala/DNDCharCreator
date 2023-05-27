@@ -22,6 +22,7 @@ function getCharacter($dbConn,$name){
 
 function getCharacters($user) {
     $query = "select * from `characters` where `userid` = " . $user;
+    console_log("QUERY: " . $query);
     return @mysqli_query(ConnGet(), $query);
 }
 

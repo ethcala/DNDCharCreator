@@ -3,8 +3,6 @@ include_once('../Header.php');
 ?>
 <script>
     function generateRand(){
-         document.getElementById('level').value = Math.floor(Math.random() * 20) + 1;
-         document.getElementById('hp').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('ac').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('strength').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('constitution').value = Math.floor(Math.random() * 20) + 1;
@@ -16,7 +14,7 @@ include_once('../Header.php');
     }
 </script>
 <br />
-<form action="addCharacter">
+<form action="add_character.php">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" />
     <label for="gender">Gender</label>
@@ -47,21 +45,9 @@ include_once('../Header.php');
     <input type="number" name="wisdom" id="wisdom" />
     <input name="create" type='submit' value="Create Character" />
 </form>
-<button name="rando" value="randomize" onclick="generateRand()">Randomize</button>
+<button name="rando" value="randomize" onclick="generateRand()">Randomize Attributes</button>
 <p id="error"></p>
 
 <?php
 include_once('../Footer.php');
 ?>
-<script>
-    function addCharacter() {
-        <?php
-        if (!$_GET['name'] || !$_GET['gender'] || !$_GET['class'] || !$_GET['race'] || !$_GET['flaws'] || !$_GET['level']) {
-            echo ('<p>All fields must be filled.</p>');
-        } else {
-            addCharacter($_GET['name'], $_GET['gender'], $_GET['class'], $_GET['race'], $_GET['level'], $_GET['hp'], $_GET['ac'], $_GET['strength'], $_GET['dexterity'], $_GET['charisma'], $_GET['intelligence'], $_GET['constitution'], $_GET['wisdom'], $_GET['flaws']);
-        }
-        ?>
-    }
-
-</script>

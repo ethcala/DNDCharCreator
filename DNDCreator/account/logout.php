@@ -1,8 +1,7 @@
 <?php
-    if (isset($_COOKIE["user"])) {
-    setcookie("user", "", time() - 100000, "/");
-    setcookie("password", "", time() - 100000, "/");
-    header("Location: http://localhost:5435/");
-    exit();
-}
+setcookie("user", false);
+$_SESSION['user'] = '';
+session_destroy();
+header("Location: http://localhost:39482");
+exit();
 ?>
