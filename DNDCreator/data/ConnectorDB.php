@@ -2,7 +2,7 @@
 DEFINE('DB_USER','admin');
 DEFINE('DB_PSWD', 'password');
 define('DB_SERVER', 'dnddatabase.cdohwcfgju62.us-west-1.rds.amazonaws.com:3306');
-define('DB_NAME', 'DNDDatabase');
+define('DB_NAME', 'dnddatabase');
 
 function ConnGet(){
     $dbConn = @mysqli_connect(DB_SERVER,DB_USER,DB_PSWD,DB_NAME)
@@ -10,39 +10,36 @@ function ConnGet(){
     return $dbConn;
 }
 
-function getUser($username,$password){
-    $dbConn = ConnGet();
+function getUser($dbConn,$username,$password){
     $query = "select * from `users` where `username` = '" . $username . "' and `password` = '" . $password ."'" ;
     return @mysqli_query($dbConn, $query);
 }
 
-function getCharacter($name){
-    $dbConn = ConnGet();
+function getCharacter($dbConn,$name){
     $query = "select * from `name` where `name` = '" . $name . "'" ;
     return @mysqli_query($dbConn, $query);
 }
 
 function getCharacters($user) {
-    $query = "select * from `characters` where `userid` = '" . $user . "'";
+    $query = "select * from `characters` where `userid` = " . $user;
+    console_log("QUERY: " . $query);
     return @mysqli_query(ConnGet(), $query);
 }
 
 function addCharacter($name,$gender,$class,$race,$level,$HP,$AC,$str,$dex,$cha,$int,$con,$wis,$flaws){
     $dbConn = ConnGet();
-    $query = "insert into characters(userid, name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values('".$_SESSION['userid']."','".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
+    $query = "insert into characters(name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values('".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
     return @mysqli_query($dbConn,$query);
 }
 
-function deleteCharacter($name,$id){
-    $dbConn = ConnGet();
+function deleteCharacter($dbConn,$name,$id){
     $query = "delete from characters where id = '".$id."' and name = '".$name."'";
     return @mysqli_query($dbConn,$query);
 }
 //we need update but idk how the query should look
 
-function addUsers($username,$password){
-    $dbConn = ConnGet();
-    $check = checkUser($dbConn, $username);
+function addUsers($dbConn,$username,$password){
+    $check = checkUser(ConnGet(), $username);
 
     if($check->num_rows > 0){
         return "Username already used.";
@@ -51,8 +48,7 @@ function addUsers($username,$password){
         return @mysqli_query($dbConn,$query);
     }
 }
-function checkUser($username){
-    $dbConn = ConnGet();
+function checkUser($dbConn, $username){
     $query = "select * from `users` where `username` ='".$username."'";
     return @mysqli_query($dbConn, $query);
 }
