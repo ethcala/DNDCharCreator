@@ -20,7 +20,7 @@ $_SESSION['css'] = __DIR__ . '\DND.css';
     <?php        
         if($_COOKIE['user'] == '') {
             $menu = array("Account");
-            $accMenu = array("Sign Up"=>"/account/signup.php", "Log In"=>"/account/login.php");
+            $accMenu = array("Sign Up"=> "/account/signup.php", "Log In"=> "/account/login.php");
             foreach($menu as $title) {
                 echo ('<div class="dropdown"><button class="dropbtn">' . $title . '</button>');        
                 echo ('<div class="dropdown-content">');
@@ -32,8 +32,8 @@ $_SESSION['css'] = __DIR__ . '\DND.css';
             echo ("</div>");
         } else {
             $menu = array("Account", "Characters");
-            $accMenu = array("Account Settings"=>"/account/settings.php", "Log Out"=>"account/logout.php");
-            $charMenu = array("Add Character"=>"/characters/addcharacter.php", "View All"=>"/characters/all.php");
+            $accMenu = array("Account Settings"=> "/account/settings.php", "Log Out"=>"/account/logout.php");
+            $charMenu = array("Add Character"=>"/characters/addcharacter.php", "View All"=> "/characters/all.php");
             foreach($menu as $title) {
                 echo ('<div class="dropdown"><button class="dropbtn">' . $title . '</button>');        
                 switch($title) {
