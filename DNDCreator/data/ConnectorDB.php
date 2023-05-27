@@ -10,12 +10,14 @@ function ConnGet(){
     return $dbConn;
 }
 
-function getUser($dbConn,$username,$password){
+function getUser($username,$password){
+    $dbConn = ConnGet();
     $query = "select * from `users` where `username` = '" . $username . "' and `password` = '" . $password ."'" ;
     return @mysqli_query($dbConn, $query);
 }
 
-function getCharacter($dbConn,$name){
+function getCharacter($name){
+    $dbConn = ConnGet();
     $query = "select * from `name` where `name` = '" . $name . "'" ;
     return @mysqli_query($dbConn, $query);
 }
@@ -27,18 +29,20 @@ function getCharacters($user) {
 
 function addCharacter($name,$gender,$class,$race,$level,$HP,$AC,$str,$dex,$cha,$int,$con,$wis,$flaws){
     $dbConn = ConnGet();
-    $query = "insert into characters(userid, name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values(".$_SESSION['userid']."','".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
+    $query = "insert into characters(userid, name, gender, class, race,level, HP, AC,str, dex,cha,int,con, wis,flaws)values('".$_SESSION['userid']."','".$name."','".$gender."','".$class."','".$race."','".$level."','".$HP."','".$AC."','".$str."','".$dex."','".$cha."','".$int."','".$con."','".$wis."'.'".$flaws.")";
     return @mysqli_query($dbConn,$query);
 }
 
-function deleteCharacter($dbConn,$name,$id){
+function deleteCharacter($name,$id){
+    $dbConn = ConnGet();
     $query = "delete from characters where id = '".$id."' and name = '".$name."'";
     return @mysqli_query($dbConn,$query);
 }
 //we need update but idk how the query should look
 
-function addUsers($dbConn,$username,$password){
-    $check = checkUser(ConnGet(), $username);
+function addUsers($username,$password){
+    $dbConn = ConnGet();
+    $check = checkUser($dbConn, $username);
 
     if($check->num_rows > 0){
         return "Username already used.";
@@ -47,7 +51,8 @@ function addUsers($dbConn,$username,$password){
         return @mysqli_query($dbConn,$query);
     }
 }
-function checkUser($dbConn, $username){
+function checkUser($username){
+    $dbConn = ConnGet();
     $query = "select * from `users` where `username` ='".$username."'";
     return @mysqli_query($dbConn, $query);
 }
