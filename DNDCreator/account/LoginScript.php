@@ -1,8 +1,7 @@
 <?php
 include '../data/ConnectorDB.php';
 
-$conn = ConnGet();
-$users = getUser($connec, $_POST["name"], $_POST["pass"]);
+$users = getUser($_POST["username"], $_POST["password"]);
 
 if ($users->num_rows > 0) {
     // output data of each row
@@ -11,10 +10,8 @@ if ($users->num_rows > 0) {
         $user = $row["username"];
         $pas = $row["password"];
         setcookie("user", $user, time() + (86400 * 30), "/");
-        setcookie("password", $pas, time() + (86400 * 30), "/");
-        setcookie("admin", $row["isAdmin"], time() + (86400 * 30), "/");
-        setcookie("style", "../default.css", time() + (86400 * 30), "/");
-        header("Location: http://localhost:5435/");
+        setcookie("userid", $row["userid"], time() + (86400 * 30), "/");
+        header("Location: /");
         exit();
 
     }

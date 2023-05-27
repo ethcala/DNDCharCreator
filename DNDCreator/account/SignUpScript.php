@@ -1,28 +1,26 @@
 <?php
-$name = "";
-$pass = "";
+$name = $_POST['username'];
+$pass = $_POST['password'];
 
-if(empty($_POST["name"])|| empty($_POST["pass"])){
+require '../data/ConnectorDB.php';
+
+if(empty($name)|| empty($pass)){
     echo "No blanks allowed";
 }else{
 
     $addUser = "";
-    $connec = ConnGet();
-    if(empty($_POST["user"])){
-
-        $addUser = addUsers($connec, $_POST["name"], $_POST["pass"]);
+    $addUser = addUsers($name, $pass);
 
         if($addUser == 1 || $addUser =="1"){
-            login($_POST["name"], $_POST["pass"], $connec);
+            login($name, $pass);
         }else{
             echo $addUser;
         }
     }
-}
 
 
-   function login($username, $password, $connec){
-    $getUser = getUser($connec, $username, $password);
+   function login($username, $password){
+    $getUser = getUser($username, $password);
     if ($getUser->num_rows > 0) {
         // output data of each row
         while($row = $getUser->fetch_assoc()) {
@@ -30,9 +28,8 @@ if(empty($_POST["name"])|| empty($_POST["pass"])){
             $user = $row["username"];
             $pas = $row["password"];
             setcookie("user", $user, time() + (86400 * 30), "/");
-            setcookie("password", $pas, time() + (86400 * 30), "/");
-            setcookie("style", "../default.css", time() + (86400 * 30), "/");
-            header("Location: http://localhost:5435/");
+            setcookie("userid", $row["userid"], time() + (86400 * 30), "/");
+            header("Location: /");
             exit();
         }
 

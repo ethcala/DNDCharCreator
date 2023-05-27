@@ -1,7 +1,10 @@
 <?php
-setcookie("user", false);
-$_SESSION['user'] = '';
+session_start();
+setcookie("user", false, time()-5999);
+setcookie("userid", false, time()-5999);
+unset($_SESSION);
 session_destroy();
-header("Location: http://localhost:39482");
-exit();
+session_write_close();
+header("Location: /");
+die;
 ?>

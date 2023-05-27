@@ -3,18 +3,20 @@ include_once('../Header.php');
 ?>
 <script>
     function generateRand(){
+         document.getElementById('level').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('hp').value = Math.floor(Math.random() * 20) + 1;
+         document.getElementById('ac').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('strength').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('constitution').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('dexterity').value = Math.floor(Math.random() * 20) + 1;
-         document.getElementById('charisma').value = Math.floor(Math.random() * 20) + 1;
+        document.getElementById('charisma').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('intelligence').value = Math.floor(Math.random() * 20) + 1;
          document.getElementById('wisdom').value = Math.floor(Math.random() * 20) + 1;
         
     }
 </script>
 <br />
-<form action="add_character.php" method="post">
-    <h3>Basics</h3>
+<form action="addCharacter">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" />
     <label for="gender">Gender</label>
@@ -31,8 +33,6 @@ include_once('../Header.php');
     <input type="number" name="hp" id="hp"/>
     <label for="ac">AC</label>
     <input type="number" name="ac" id="ac" />
-    <br/>
-    <h3>Attributes</h3>
     <label for="strength">Strength</label>
     <input type="number" name="strength" id="strength" />
     <label for="constitution">Constitution</label>
@@ -47,7 +47,7 @@ include_once('../Header.php');
     <input type="number" name="wisdom" id="wisdom" />
     <input name="create" type='submit' value="Create Character" />
 </form>
-<button name="rando" value="randomize" onclick="generateRand()">Randomize Attributes</button>
+<button name="rando" value="randomize" onclick="generateRand()">Randomize</button>
 <p id="error"></p>
 
 <?php
