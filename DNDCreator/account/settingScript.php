@@ -1,22 +1,20 @@
 <?php
-$style = $_POST["stly"];
+$style = $_POST["style"];
 
 
     switch($style){
-        case("DND"):
-
-            setcookie("style", "../DND.css", time() + (86400 * 30), "/");
-            header("Location: http://localhost:5435/");
+        case("default"):
+            $_SESSION['css'] = $_SESSION['ABSPATH'] . "/DND.css";
             break;
-        case("Booger"):
-
-            setcookie("style", "../Booger.css", time() + (86400 * 30), "/");
-            header("Location: http://localhost:5435/");
+        case("green"):
+            $_SESSION['css'] = $_SESSION['ABSPATH'] . "/Booger.css";
             break;
-        case("darkMode"):
-
-            setcookie("style", "../darkMode.css", time() + (86400 * 30), "/");
-            header("Location: http://localhost:5435/");
+        case("dark"):
+            $_SESSION['css'] = $_SESSION['ABSPATH'] . "/darkMode.css";
             break;
     };
+
+    header("Location: /account/settings.php");
+
+    include_once('settings.php');
 ?>

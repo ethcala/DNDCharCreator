@@ -1,5 +1,5 @@
 <?php
-
+include_once('../Header.php');
 ?>
 <p class="error">* required field</p>
 
@@ -13,5 +13,9 @@
     <input type="submit"/>
     </form>
 <br/>
+
+<?php
+include_once('../Footer.php');
+?>
 
 
