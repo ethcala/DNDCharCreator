@@ -47,6 +47,7 @@
 }
 
 footer {
+    display: block;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -107,11 +108,17 @@ button{
 .specify{
     display:none;
 }
-.edit{
-    display:none;
-}
 
 .flex {
     display: flex;
     flex-direction: row;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit {
+    margin-top: 40px;
 }

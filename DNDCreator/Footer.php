@@ -1,5 +1,5 @@
 <?php
-    echo ('<p>Created by Goofy Goobers inc.</p>')
+    echo ('<footer><p>Created by Goofy Goobers inc.</p></footer>')
 ?> 
 
 </body>
