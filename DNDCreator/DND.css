@@ -100,3 +100,12 @@ button{
     p{
         text-align:center;
     }
+
+.modal {
+    display: none;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
