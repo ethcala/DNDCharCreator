@@ -104,6 +104,12 @@ button{
 .modal {
     display: none;
 }
+.specify{
+    display:none;
+}
+.edit{
+    display:none;
+}
 
 .flex {
     display: flex;

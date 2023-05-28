@@ -21,6 +21,11 @@ function getCharacter($name){
     $query = "select * from `name` where `name` = '" . $name . "'" ;
     return @mysqli_query($dbConn, $query);
 }
+function GetSingle($id){
+    $dbConn = ConnGet();
+    $query = "select * from characters where id=".$id."";
+    return @mysqli_query($dbConn,$query);
+}
 
 function getCharacters($user) {
     $query = "select * from `characters` where `userid` = " . $user;
