@@ -1,5 +1,4 @@
 <?php
-session_start();
 setcookie("user", false, time()-5999);
 setcookie("userid", false, time()-5999);
 unset($_SESSION);
