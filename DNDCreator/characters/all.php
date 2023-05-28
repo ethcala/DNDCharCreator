@@ -105,7 +105,7 @@ if($characters->num_rows <= 0) {
     }
     function editChar(id) {
         document.getElementById('charId').value = id;
-        document.getElementById('charId').style.display = "block";
+        document.getElementById('edit').style.display = "block";
     }
 </script>
 
