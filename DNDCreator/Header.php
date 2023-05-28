@@ -8,9 +8,7 @@ $_SESSION['css'] = __DIR__ . '\DND.css';
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="description" content="<?php echo $pgDesc?>" />
-    <meta name="keywords" content="<?php echo $keyWords?>" />   
+<head>  
     
 </head>
 
