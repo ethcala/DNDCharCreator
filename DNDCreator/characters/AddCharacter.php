@@ -11,6 +11,9 @@ include_once('../Header.php');
          document.getElementById('wisdom').value = Math.floor(Math.random() * 20) + 1;
         
     }
+    function generateNames() {
+
+    }
 </script>
 <br />
 
@@ -23,9 +26,33 @@ include_once('../Header.php');
             <label for="gender">Gender</label>
             <input type="text" name="gender" id="gender" />
             <label for="class">Class</label>
-            <input type="text" name="class" id="class" />
+            <select name="class" id="class" >
+                <option value="Wizard">Wizard</option>
+                <option value="Cleric">Cleric</option>
+                <option value="Ranger">Ranger</option>
+                <option value="Warlock">Warlock</option>
+                <option value="Bard">Bard</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Monk">Monk</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Fighter">Fighter</option>
+                <option value="Druid">Druid</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Artificer">Artificer</option>
+            </select>
             <label for="race">Race</label>
-            <input type="text" name="race" id="race" />
+            <select name="race" id="race" >
+                <option value="Dragonborn">Dragonborn</option>
+                <option value="Dwarf">Dwarf</option>
+                <option value="Elf">Elf</option>
+                <option value="Gnome">Gnome</option>
+                <option value="Half-Elf">Half-Elf</option>
+                <option value="Halfling">Halfling</option>
+                <option value="Half-Orc">Half-Orc<option>
+                <option value="Human">Human<option>
+                <option value="Tiefling">Tiefling<option>
+            </select>
             <label for="flaws">Flaws</label>
             <input type="text" name="flaws" id="flaws" />
             <label for="level">Level</label>
@@ -60,7 +87,6 @@ include_once('../Header.php');
 <button name="rando" value="randomize" onclick="generateRand()">Randomize Attributes</button>
 
 <p id="error"></p>
+<br/>
+<p>foot</p>
 
-<?php
-include_once('../Footer.php');
-?>
