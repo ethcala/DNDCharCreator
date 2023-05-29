@@ -29,7 +29,7 @@ error_reporting();
    
 
     <?php        
-        if($_COOKIE['user'] == '' || !isset($_COOKIE['user'])) {
+        if($_COOKIE['user'] == '') {
             $menu = array("Account");
             $accMenu = array("Sign Up"=>"/account/signup.php", "Log In"=>"/account/login.php");
             foreach($menu as $title) {

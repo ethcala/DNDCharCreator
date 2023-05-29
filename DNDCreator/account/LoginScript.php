@@ -10,7 +10,7 @@ if ($users->num_rows > 0) {
         $user = $row["username"];
         $pas = $row["password"];
         setcookie("user", $user, time() + (86400 * 30), "/");
-        $_SESSION['userid'] = $row['userid'];
+        setcookie("userid", $row["userid"], time() + (86400 * 30), "/");
         header("Location: /");
         exit();
 
