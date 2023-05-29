@@ -2,34 +2,18 @@
 <?php
 session_start();
 error_reporting();
-//$_SESSION['css'] = __DIR__ . '\DND.css';
+$_SESSION['css'] = __DIR__ . '\DND.css';
 ?>
 </title>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>  
-    <meta name="description" content="<?php echo $pgDesc?>" />
-    <meta name="keywords" content="<?php echo $keyWords?>" />
-    <?php
-    if ($_SESSION['css'] == '') {
-        $_SESSION['css'] = __DIR__ . '\DND.css';
-    }
-    ?>
-     <style><?php include $_SESSION['css']?></style>
-    <?php
-    if(!isset($_COOKIE["style"]) || empty($_COOKIE["style"] || $_COOKIE["style"] == "")){
-        echo "<link href= '../DND.css' rel = 'stylesheet'/>";
-
-    }else{
-        echo '<link href= '. $_COOKIE["style"] . ' rel = "stylesheet"/>';
-
-    }
-    ?>
+    
 </head>
 
 <body>
-   
+    <style><?php include $_SESSION['css']?></style>
 
     <?php        
         if($_COOKIE['user'] == '') {
