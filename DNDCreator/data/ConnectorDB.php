@@ -36,8 +36,8 @@ function GetSingle($id){
     return @mysqli_query($dbConn,$query);
 }
 
-function getCharacters($user) {
-    $query = "select * from `characters` where `userid` = " . $user;
+function getCharacters() {
+    $query = "select * from `characters` where userid=" . $_SESSION['userid'];
     return @mysqli_query(ConnGet(), $query);
 }
 

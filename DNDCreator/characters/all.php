@@ -1,6 +1,6 @@
 <?php
 require '../data/ConnectorDB.php';
-$characters = getCharacters($_COOKIE['userid']);
+$characters = getCharacters();
 include_once('../Header.php');
 
 echo '<br/><h1>Characters</h1>';
@@ -38,18 +38,9 @@ if($characters->num_rows <= 0) {
 
     </form>
 </div>
-<div class="specify" id="specify">
-    <h3>Here is your character</h3>
-    <?php
-        echo '<div class="border-box"><h1>' . $char['name'] . '</h1>';
-        echo '<p>Id: '.$char['id'].'</p>';
-        echo '<p>Level: ' . $char['level'] . '</p>';
-        echo '<p>Gender: ' .$char['gender'].'</p>';
-        echo '<p>Class: '.$char['class'].'</p>';
-        echo '</div><br/> <br/>';
-    
-    ?>
-</div>
+<?php
+include_once('../Footer.php');
+?>
 <br/>
 
 <script>
@@ -67,7 +58,3 @@ if($characters->num_rows <= 0) {
         document.getElementById('edit').style.display = "block";
     }
 </script>
-
-<?php
-include_once('../Footer.php');
-?>
