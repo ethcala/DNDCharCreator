@@ -15,7 +15,7 @@ function mapThruArray($chars) {
         echo '<div class="row">';
         echo '<form method="post" action="updatecharacter.php"><input type="hidden" id="charId" name="charId" value='.$char['id'].'/><button type="submit">Edit Character</button></form>';
         echo '<button onclick="deleteChar(' .$char['id']. ')" >Delete</button>';
-        echo '<form method="post" action="viewcharacter.php"><input type="hidden" id="charId" value='.$char['id'].'/><button type="submit">View Character</button></form>';
+        echo '<form method="post" action="viewcharacter.php"><input type="hidden" id="charId" name="charId" value='.$char['id'].'/><button type="submit">View Character</button></form>';
         echo '</div>';
         echo '</div><br/> <br/>';
     }

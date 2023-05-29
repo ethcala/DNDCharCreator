@@ -8,11 +8,10 @@ if ($users->num_rows > 0) {
     while($row = $users->fetch_assoc()) {
 
         $user = $row["username"];
-        $userid = $row['userid'];
+        $userid = $row['id'];
         $pas = $row["password"];
         setcookie("user", $user, time() + (86400 * 30), "/");
         setcookie("userid", $userid, time() + (86400 * 30), "/");
-        $_SESSION['userid'] = $row['userid'];
         header("Location: /");
         exit();
 
