@@ -12,15 +12,7 @@ include_once('../Header.php');
         
     }
     function generateNames() {
-        const HumanName = ["James", "Ashely", "John"];
-        const DragonbornName = ["Anastasia", "Uraka", "Miirym"];
-        const DwarfName = ["Torekdroun", "Hekhoki", "Nutgrumi"];
-        const ElfName = ["Haemir", "Travaran", "Galan"];
-        const GnomeName = ["Ramdap", "Lybbrock", "Gnovyc"];
-        const HalfElfName = ["Cryslion", "Aalzaren", "Reynamar"];
-        const HalflingName = ["Gachi", "Nogoro", "Eimasu"];
-        const HalfOrcName = ["Tillsot", "Moulen", "Ake"];
-        const TieflingName = ["Umi", "Toshiyuki", "Haru"];
+
     }
 </script>
 <br />
