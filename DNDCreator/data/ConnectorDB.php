@@ -3,6 +3,7 @@ DEFINE('DB_USER','admin');
 DEFINE('DB_PSWD', 'password');
 define('DB_SERVER', 'dnddatabase.cdohwcfgju62.us-west-1.rds.amazonaws.com:3306');
 define('DB_NAME', 'DNDDatabase');
+session_start();
 
 function console_log($output, $with_script_tags = true) {
     $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
@@ -36,8 +37,9 @@ function GetSingle($id){
     return @mysqli_query($dbConn,$query);
 }
 
-function getCharacters($user) {
-    $query = "select * from `characters` where `userid` = " . $user;
+function getCharacters() {
+    $userid = $_SESSION['userid'];
+    $query = "select * from `characters` where userid=" . $_COOKIE['userid'];
     return @mysqli_query(ConnGet(), $query);
 }
 
