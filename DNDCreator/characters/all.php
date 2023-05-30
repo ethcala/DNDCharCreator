@@ -12,12 +12,10 @@ function mapThruArray($chars) {
         echo '<p>Level: ' . $char['level'] . '</p>';
         echo '<p>Race: ' .$char['race'].'</p>';
         echo '<p>Class: '.$char['class'].'</p>';
-        echo '<div class="row">';
         echo '<form method="post" action="updatecharacter.php"><input type="hidden" id="charId" name="charId" value='.$char['id'].'/><button type="submit">Edit Character</button></form>';
         echo '<button onclick="deleteChar(' .$char['id']. ')" >Delete</button>';
         echo '<form method="post" action="viewcharacter.php"><input type="hidden" id="charId" name="charId" value='.$char['id'].'/><button type="submit">View Character</button></form>';
         echo '</div>';
-        echo '</div><br/> <br/>';
     }
 }
 
@@ -26,16 +24,16 @@ if($characters->num_rows <= 0) {
 } else {
     echo mapThruArray($characters);
 };
+echo '</div>';
 ?>
-
+<br/>
 <div class="modal border-box" id="modal">
     <h3>Confirm delete</h3>
     <p>Enter character name here to delete:</p>
     <form action="del_char.php" method="post">
-        <input type="hidden" name="charId" id="charId" />
+        <input type="hidden" name="charId" id="charIdforpost" />
         <input type="text" name="charName" id="charName" />
         <button type="submit">Delete</button>
-
     </form>
 </div>
 <?php
@@ -45,16 +43,7 @@ include_once('../Footer.php');
 
 <script>
     function deleteChar(id) {
-        document.getElementById('charId').value = id;
+        document.getElementById('charIdforpost').value = id;
         document.getElementById("modal").style.display = "block";
-    }
-    function viewChar(id) {
-        document.getElementById('charId').value = id;
-        document.getElementById('specify').style.display = "block";
-
-    }
-    function editChar(id) {
-        document.getElementById('charId').value = id;
-        document.getElementById('edit').style.display = "block";
     }
 </script>

@@ -9,25 +9,15 @@ error_reporting();
 <html lang="en">
 <head>  
     <?php
-    if ($_SESSION['css'] == '' || !isset($_SESSION['css'])) {
+    if ($_SESSION['css'] == '' || !isset($_SESSION[ 'css'])) {
         $_SESSION['css'] = $_SESSION['ABSPATH']. '/DND.css';
     }
     ?>
     <style><?php include $_SESSION['css']?></style>
-    <?php
-    //if(!isset($_COOKIE["style"]) || empty($_COOKIE["style"] || $_COOKIE["style"] == "")){
-    //    echo "<link href='". __DIR__ . "\DND.css' rel = 'stylesheet'/>";
-
-    //}else{
-    //    echo '<link href= '. $_COOKIE["style"] . ' rel = "stylesheet"/>';
-
-    //}
-    ?>
 </head>
 
 <body>
-   
-
+    <header>
     <?php        
         if($_COOKIE['user'] == '' || !isset($_COOKIE['user'])) {
             $menu = array("Account");
@@ -67,4 +57,6 @@ error_reporting();
             }            
         }
     ?>
+
+    </header>
 <br/>
