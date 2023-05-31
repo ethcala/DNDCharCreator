@@ -1,7 +1,7 @@
 <?php
 $style = $_POST["style"];
 
-
+// set css style to chosen style using absolute path
     switch($style){
         case("default"):
             $_SESSION['css'] = $_SESSION['ABSPATH'] . "/DND.css";
@@ -14,6 +14,7 @@ $style = $_POST["style"];
             break;
     };
 
+     // redirect to settings
     header("Location: /account/settings.php");
 
     include_once('settings.php');

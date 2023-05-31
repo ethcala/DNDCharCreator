@@ -6,6 +6,7 @@ include_once('../Header.php');
 echo '<br/><h1>Characters</h1>';
 
 echo '<div class="flex">';
+// display all characters with edit/delete/view
 function mapThruArray($chars) {
     foreach ($chars as $char) {
         echo '<div class="border-box"><h1>' . $char['name'] . '</h1>';
@@ -18,7 +19,7 @@ function mapThruArray($chars) {
         echo '</div>';
     }
 }
-
+// if no characters display no characters found
 if($characters->num_rows <= 0) {
     echo '<p>No characters found.</p>';
 } else {

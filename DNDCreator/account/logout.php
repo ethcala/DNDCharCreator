@@ -1,4 +1,5 @@
 <?php
+// reset cookies and session
 setcookie("user", false, time()-5999, "/");
 setcookie("userid", false, time()-5999, "/");
 unset($_SESSION);
